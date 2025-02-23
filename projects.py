@@ -14,7 +14,6 @@ def markdown_processor(input: str) -> dict:
     '''
     metadata: dict = {}
     body: dict = {}
-    # title_url: dict = {}
     output: dict = {}
 
     with open(input, 'r') as file:
@@ -22,7 +21,7 @@ def markdown_processor(input: str) -> dict:
 
     if lines[0].strip() != '---':
         body_string: str = ''.join(lines)
-        body: dict = {'body':markdown(body_string)}
+        body: dict = {'body':markdown(body_string, extensions=[CodeHiliteExtension(linenums=0)])}
         output: dict = generate_title_url(metadata | body)
         return output
 
@@ -37,7 +36,7 @@ def markdown_processor(input: str) -> dict:
     metadata: yaml = yaml.safe_load(''.join(frontmatter))
 
     body_string: str = ''.join(lines[end_frontmatter_index:])
-    body: dict = {'body':markdown(body_string, extensions=[CodeHiliteExtension()])}
+    body: dict = {'body':markdown(body_string, extensions=[CodeHiliteExtension(linenums=0)])}
     output: dict = generate_title_url(metadata | body)
     return output
 

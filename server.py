@@ -21,20 +21,6 @@ def get_days_of_code() -> None:
         ]
     DAYS_OF_CODE_PORTFOLIO = [markdown_processor(i) for i in projects_list]
 
-@app.route("/")
-def home():
-    return render_template("index.html")
-
-@app.route("/about")
-def about():
-    content = markdown_processor('./pages/about.md')
-    return render_template("general_content.html", content=content)
-
-@app.route("/development")
-def development():
-    content = markdown_processor('./pages/plans.md')
-    return render_template("general_content.html", content=content)
-
 @app.route("/portfolio/days-of-code")
 def days_of_code_portfolio():
     get_days_of_code()
@@ -49,6 +35,21 @@ def days_of_code_entry(project_name):
         project = i
         break
     return render_template('project_entry.html', project=project)
+
+@app.route("/")
+def home():
+    return render_template("index.html")
+
+@app.route("/about")
+def about():
+    content = markdown_processor('./pages/about.md')
+    return render_template("general_content.html", content=content)
+
+@app.route("/development")
+def development():
+    content = markdown_processor('./pages/plans.md')
+    return render_template("general_content.html", content=content)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
