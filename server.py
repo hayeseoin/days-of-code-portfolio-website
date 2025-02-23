@@ -21,7 +21,6 @@ def get_days_of_code() -> None:
         ]
     DAYS_OF_CODE_PORTFOLIO = [markdown_processor(i) for i in projects_list]
 
-
 @app.route("/")
 def home():
     return render_template("index.html")
