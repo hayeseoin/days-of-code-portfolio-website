@@ -1,0 +1,21 @@
+[
+    {
+        "title": "Morse Code Converter",
+        "tags": [
+            "Scripting",
+            "100 Days of Code"
+        ],
+        "author": "Eoin Hayes",
+        "link": "https://github.com/eoinhayes/fdklfjsld",
+        "body": "<h1>Morse Code Converter</h1>\n<p>This script takes in a string, and outputs morse code.</p>\n<p>The alphabet is a dictionary of key value pairs, associating each character to the morse code signal. It prints out the phrase in morse code. Letters are folowed by a space, words followed by two spaces. If an incompatible character is entered, it represented with an 'e'.</p>"
+    },
+    {
+        "title": "Test Project",
+        "tags": [
+            "Scripting",
+            "Test"
+        ],
+        "author": "Eoin Hayes",
+        "body": "<h1>This is a test project</h1>\n<p>hello world</p>"
+    }
+]

@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
-{%block title %} Eoin Hayes Portfolio Site {% endblock %}
+{%block title %} Eoin Hayes {% endblock %}
 {% block body %}
-<!-- Page Header-->
+<!-- Page Header
 <header
   class="masthead"
 >
@@ -15,21 +15,24 @@
       </div>
     </div>
   </div>
-</header>
+</header> -->
 
-<hr class="my-4" />
+<!-- <hr class="my-4" /> -->
 
 <!-- Main Content-->
-<div class="container px-4 px-lg-5">
-    <div class="row gx-4 gx-lg-5 justify-content-center">
-      <div class="col-md-10 col-lg-8 col-xl-7">
-        <p>
-          This is a site showcasing my attempts at the final projects on 
-          Angela Yu's 100 days of code Python Course (days 82-100)
-        </p>
-  
-      </div>
+<div class="px-4 py-5 my-5 text-center">
+  <!-- <img class="d-block mx-auto mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
+  <h1 class="display-5 fw-bold">Eoin Hayes</h1>
+  <div class="col-lg-6 mx-auto">
+    <p class="lead mb-4">Personal website of Eoin Hayes</p>
+    <p>Currently working through the 100 days of code portfolio builder lessons</p>
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+      <a href="{{url_for('days_of_code_portfolio')}}" type="button" class="btn btn-primary btn px-4 gap-3">
+        Projects
+      </a>
+      <!-- <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button> -->
     </div>
   </div>
+</div>
 
 {% endblock %}

@@ -15,25 +15,25 @@
     </div>
   </div>
 </header>
-
+<hr class="my-4" />
 <!-- Main Content-->
 <div class="container px-4 px-lg-5">
     <div class="row gx-4 gx-lg-5 justify-content-center">
       <div class="col-md-10 col-lg-8 col-xl-7">
+        {% for entry in projects %}
         <!-- Post preview-->
         <div class="post-preview">
-          <a href="#">
-            <h2 class="post-title">Title</h2>
-            <h3 class="post-subtitle">Subtitle</h3>
+          <a href="{{url_for('days_of_code_entry', project_name=entry.get('title_url'))}}">
+            <h2 class="post-title">{{entry.get('title')}}</h2>
           </a>
+          <p>{{', '.join(entry.get('tags'))}}</p>
           <p class="post-meta">
-            Posted by
-            <a href="#">Eoin</a>
-            on 00/00/0000
+            Posted by {{entry.get('author')}}
           </p>
         </div>
         <!-- Divider-->
-        <hr class="my-4" />
+         <br>
+        {% endfor %}
   
       </div>
     </div>
