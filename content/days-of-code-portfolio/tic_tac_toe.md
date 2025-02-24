@@ -2,6 +2,7 @@
 title: Tic Tac Toe
 tags:
   - Scripting
+author: Eoin Hayes
 github: https://github.com/hayeseoin/days-of-code-84.git
 ---
 # Tic Tac Toe
