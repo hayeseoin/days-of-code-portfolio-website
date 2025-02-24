@@ -16,6 +16,7 @@ I wrapped everything in a class called Game(). It was good to work with a class,
 
 I wondered how to check the win condition. Then I realised I could just define all of the win conditions, as there are only 8 of them, and then check each one at the end of every turn. 
 
+---
     #!python
     import os
 
