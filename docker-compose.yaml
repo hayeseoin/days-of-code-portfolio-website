@@ -1,0 +1,35 @@
+services:
+  app:
+    build: app/.
+    volumes:
+      - ./content:/usr/src/app/content:ro
+    # ports:
+    #   - 8000:8000
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.web.rule=Host(`eoinhay.es`)"
+      - "traefik.http.routers.web.entrypoints=flasksite"
+      - "traefik.http.services.app.loadbalancer.server.port=8000"
+      - "traefik.http.routers.web.tls.certresolver=myresolver"
+
+  traefik:
+    image: traefik:v3.2
+    command:
+      #- "--log.level=DEBUG"
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.web.http.redirections.entryPoint.to=flasksite"
+      - "--entrypoints.web.http.redirections.entryPoint.scheme=https"
+      - "--entryPoints.flasksite.address=:443"
+      - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
+      - "--certificatesresolvers.myresolver.acme.email=webmaster@eoinhay.es"
+      - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./letsencrypt:/letsencrypt
+    
