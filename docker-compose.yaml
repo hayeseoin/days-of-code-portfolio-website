@@ -11,6 +11,7 @@ services:
       - "traefik.http.routers.web.entrypoints=flasksite"
       - "traefik.http.services.app.loadbalancer.server.port=8000"
       - "traefik.http.routers.web.tls.certresolver=myresolver"
+    restart: unless-stopped
 
   traefik:
     image: traefik:v3.2
@@ -32,4 +33,5 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./letsencrypt:/letsencrypt
+    restart: unless-stopped
     
