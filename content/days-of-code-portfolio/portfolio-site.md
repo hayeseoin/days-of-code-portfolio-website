@@ -1,5 +1,6 @@
 ---
 title: Portfolio Website
+author: Eoin Hayes
 tags:
   - 100 Days Of Code
   - Web Development
